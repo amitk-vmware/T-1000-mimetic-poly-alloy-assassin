@@ -1,0 +1,7 @@
+development:
+  HOST: 'http://localhost:3000'
+  DRUG_MGMT_SYS_HOST: 'http://localhost:3002'
+
+test:
+  HOST: 'http://localhost:3000'
+  DRUG_MGMT_SYS_HOST: 'http://localhost:3002'

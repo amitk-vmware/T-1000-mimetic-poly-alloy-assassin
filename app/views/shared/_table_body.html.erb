@@ -1,0 +1,9 @@
+<tbody>
+  <% instances.each do |instance| %>
+    <tr>
+      <% rows.each do |row| %>
+        <td><%= instance.send(row) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</tbody>

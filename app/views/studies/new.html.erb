@@ -1,0 +1,41 @@
+<div class="container">
+<div class="row border-bottom mb-2">
+  <h1> New Study Page </h1>
+</div>
+<% if @study.errors.any? %>
+  <div class="card">
+    <div class="card-header">
+      <h3> Errors occurred during creation </h3>
+    </div>
+    <div class="card-body">
+      <ul>
+        <% @study.errors.full_messages.each do |message|%>
+          <li><%= message %> </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+<%end%>
+<div class="card">
+<%= form_with(model: @study, local: true) do |f| %>
+  <div class="card-body">
+      <div class="mb-3 row">
+        <%= f.label "Name:*", { class: "form-label col-2" } %>
+        <%= f.text_field :name, { class: "form-control col-10" }%>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label 'Phase:*', { class: "form-label col-sm-2" }  %>
+        <%= f.select :phase, options_for_select(Study::PHASES), {}, { class: "form-control col-sm-10" } %>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label "Drug:", { class: "form-label col-sm-2" } %>
+        <%= f.select :drug_id, options_for_select(Drug.all.collect(&:name)), {}, { class: "form-control col-sm-10" }  %>
+      </div>
+      <div class="card-footer">
+        <%= f.submit 'Create', { class: "btn btn-outline-primary"} %>
+        <%= link_to 'Cancel', studies_path, { class: "btn btn-outline-secondary"} %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

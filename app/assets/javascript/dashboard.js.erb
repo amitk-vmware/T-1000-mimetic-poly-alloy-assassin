@@ -1,0 +1,5 @@
+let host = "<%= ENV['HOST'] %>"
+
+function redirect(url) {
+  location.href = `${host}/${url}`
+}
