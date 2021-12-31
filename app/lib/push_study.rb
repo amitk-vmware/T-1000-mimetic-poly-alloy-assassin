@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PushStudy
   def initialize(study_ids)
     @study_ids = study_ids
@@ -10,7 +12,6 @@ class PushStudy
       request.body = { studies: push_body }.to_json
     end
     return true if response.status == 200
-
   end
 
   def push_body

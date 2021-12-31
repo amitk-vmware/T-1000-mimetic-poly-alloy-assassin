@@ -1,5 +1,6 @@
-class SitesController < ApplicationController
+# frozen_string_literal: true
 
+class SitesController < ApplicationController
   def index
     @sites = Site.all
   end
@@ -8,13 +9,11 @@ class SitesController < ApplicationController
     @site = Site.new
   end
 
-  def create
-
-  end
+  def create; end
 
   private
 
   def permit_params
-    params.require(:site).permit(Site.column_names.map(&:to_sym) - [:id, :uuid, :created_at, :updated_at])
+    params.require(:site).permit(Site.column_names.map(&:to_sym) - %i[id uuid created_at updated_at])
   end
 end

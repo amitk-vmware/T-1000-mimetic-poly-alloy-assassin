@@ -1,5 +1,6 @@
-class DrugsController < ApplicationController
+# frozen_string_literal: true
 
+class DrugsController < ApplicationController
   def index
     @drugs = Drug.all
   end
@@ -18,12 +19,11 @@ class DrugsController < ApplicationController
     end
   end
 
-  def update
-  end
+  def update; end
 
   private
 
   def permit_params
-    params.require(:drug).permit([:name, :ailment, side_effects: []])
+    params.require(:drug).permit([:name, :ailment, { side_effects: [] }])
   end
 end

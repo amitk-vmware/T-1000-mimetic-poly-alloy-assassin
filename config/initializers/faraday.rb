@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 FARADAY_CONN = Faraday.new do |builder|
   builder.use Faraday::Response::Logger if Rails.env.development?

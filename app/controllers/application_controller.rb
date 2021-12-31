@@ -1,5 +1,5 @@
-class ApplicationController < ActionController::Base
+# frozen_string_literal: true
 
-  def dashboard
-  end
+class ApplicationController < ActionController::Base
+  def dashboard; end
 end
