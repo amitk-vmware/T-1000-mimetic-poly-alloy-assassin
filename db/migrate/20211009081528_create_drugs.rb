@@ -3,7 +3,7 @@ class CreateDrugs < ActiveRecord::Migration[6.1]
     create_table :drugs do |t|
       t.string  :name
       t.string  :ailment
-      t.string  :site_effects
+      t.string  :side_effects, array: true, default: []
       
       t.timestamps
     end

@@ -1,15 +1,15 @@
 <div class="container">
 <div class="row border-bottom mb-2">
-  <h1> New Study Page </h1>
+  <h1> New Drug Page </h1>
 </div>
-<% if @study.errors.any? %>
+<% if @drug.errors.any? %>
   <div class="card">
     <div class="card-header">
       <h3> Errors occurred during creation </h3>
     </div>
     <div class="card-body">
       <ul>
-        <% @study.errors.full_messages.each do |message|%>
+        <% @drug.errors.full_messages.each do |message|%>
           <li><%= message %> </li>
         <%end%>
       </ul>
@@ -17,23 +17,23 @@
   </div>
 <%end%>
 <div class="card">
-<%= form_with(model: @study, local: true) do |f| %>
+<%= form_with(model: @drug, local: true) do |f| %>
   <div class="card-body">
       <div class="mb-3 row">
-        <%= f.label "Name:*", { class: "form-label col-2" } %>
+        <%= f.label "Name:", { class: "form-label col-2" } %>
         <%= f.text_field :name, { class: "form-control col-10" }%>
       </div>
       <div class="mb-3 row">
-        <%= f.label 'Phase:*', { class: "form-label col-sm-2" }  %>
-        <%= f.select :phase, options_for_select(Study::PHASES), {}, { class: "form-control col-sm-10" } %>
+        <%= f.label 'Ailment:', { class: "form-label col-sm-2" }  %>
+        <%= f.text_field :ailment, { class: "form-control col-sm-10" } %>
       </div>
       <div class="mb-3 row">
-        <%= f.label "Drug:", { class: "form-label col-sm-2" } %>
-        <%= f.select :drug_id, options_for_select(Drug.all.pluck(:name, :id)), {}, { class: "form-control col-sm-10" }  %>
+        <%= f.label "Side Effects:", { class: "form-label col-sm-2" } %>
+        <%= f.select :side_effects, options_for_select(SIDE_EFFECTS), {}, { class: "form-control col-sm-10", multiple: true }  %>
       </div>
       <div class="card-footer">
         <%= f.submit 'Create', { class: "btn btn-outline-primary"} %>
-        <%= link_to 'Cancel', studies_path, { class: "btn btn-outline-secondary"} %>
+        <%= link_to 'Cancel', drugs_path, { class: "btn btn-outline-secondary"} %>
       </div>
     </div>
     <% end %>

@@ -1,10 +1,24 @@
 <div class="container">
   <div class="row border-bottom mb-2">
-    <p class="fs-2 col">STUDIES</p>
-    <%=link_to raw("<button class=\"btn btn-primary mt-1\"> Add Study <i class=\"fa fa-plus-square\"></i></button>"), new_study_path, class: "col text-end" %>
+    <p class="fs-2 col-6">STUDIES</p>
+    <div class="col-6 text-end">
+      <%= flash[:push_study] %>
+      <button class="btn btn-primary mt-1" id="push_study"> Push Study <i class="fa fa-angle-double-up"></i></button>
+      <%=link_to raw("<button class=\"btn btn-primary mt-1\"> Add Study <i class=\"fa fa-plus-square\"></i></button>"), new_study_path, class: "col text-end" %>
+    </div>
   </div>
   <table class="table table-bordered">
-    <%= render partial: "shared/table_header", locals: { headers: ["UUID", "NAME", "DRUG"] } %>
-    <%= render partial: "shared/table_body", locals: { instances: @studies, rows: [:uuid, :name, :drug]} %>
+    <%= render partial: "shared/table_header", locals: { headers: ["","UUID", "NAME", "ILLNESS", "DRUG"] } %>
+    <tbody>
+      <% @studies.each do |study| %>
+        <tr>
+          <td class="text-center"><%= check_box_tag 'selected_studies[]', study.id %></td>
+          <td class="text-center"><%= study.uuid %></td>
+          <td class="text-center"><%= study.name %></td>
+          <td class="text-center"><%= study.drug.ailment %></td>
+          <td class="text-center"><%= study.drug.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>

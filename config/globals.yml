@@ -1,7 +1,9 @@
 development:
-  HOST: 'http://localhost:3000'
+  HOST: 'http://localhost:3001'
   DRUG_MGMT_SYS_HOST: 'http://localhost:3002'
+  PORT: '3001'
 
 test:
-  HOST: 'http://localhost:3000'
+  HOST: 'http://localhost:3001'
   DRUG_MGMT_SYS_HOST: 'http://localhost:3002'
+  PORT: '3001'

@@ -1,5 +1,13 @@
 <div class="row m-2">
 <div class="col">
+  <div class="card text-center studies" onclick="redirect('drugs')">
+    <div class="card-body">
+      <h5 class="card-title">Drugs</h5>
+      <p class="card-text">Drug: <%= Drug.count %></p>
+    </div>
+  </div>
+</div>
+<div class="col">
   <div class="card text-center studies" onclick="redirect('studies')">
     <div class="card-body">
       <h5 class="card-title">Studies</h5>

@@ -12,8 +12,26 @@
 
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
-  <a class="navbar-brand mx-auto" href="/">Study Site Management System</a>
+  <a class="navbar-brand" href="/">Study Site Management System</a>
+  <div class="text-end" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href=<%=  drugs_path %>>Drugs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=<%= studies_path %>>Studies</a>
+      </li>            
+      <li class="nav-item">
+        <a class="nav-link" href=<%= sites_path %>>Sites</a>
+      </li>
+    </ul>
+  </div>  
   </nav>
+    <div class='container'>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

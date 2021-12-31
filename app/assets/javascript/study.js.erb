@@ -1,0 +1,20 @@
+$(document).on('turbolinks:load', () => {
+  console.log('hello')
+  $('#push_study').on('click', () => {
+    console.log('hello1')
+    let selected_studies = []
+    $("input[type='checkbox']").each((i, obj) => {
+      if(obj.checked) {
+        selected_studies.push(obj.value)
+      }
+    })
+
+    $.ajax({
+      url: `${host}/studies/push`,
+      method: 'POST',
+      data: {
+        study_ids: selected_studies
+      }
+    })
+  })
+})

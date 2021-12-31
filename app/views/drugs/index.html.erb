@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row border-bottom mb-2">
+    <p class="fs-2 col-6">DRUGS</p>
+    <div class="col-6 text-end">
+      <%=link_to raw("<button class=\"btn btn-primary mt-1\"> Add Drug <i class=\"fas fa-syringe\"></i></button>"), new_drug_path, class: "col text-end" %>
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <%= render partial: "shared/table_header", locals: { headers: ["NAME", "AILMENT", "SIDE EFFECTS"] } %>
+    <tbody>
+      <% @drugs.each do |drug| %>
+        <tr>
+          <td class="text-center"><%= drug.name %></td>
+          <td class="text-center"><%= drug.ailment %></td>
+          <td class="text-center"><% drug.side_effects.each do |side_effect| %>
+              <% if side_effect.present? %>
+                <%= side_effect%>,
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

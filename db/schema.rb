@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_083518) do
   create_table "drugs", force: :cascade do |t|
     t.string "name"
     t.string "ailment"
-    t.string "site_effects"
+    t.string "side_effects", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
