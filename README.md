@@ -23,4 +23,3 @@ Things you may want to cover:
 
 * Add github actions for ci
 
-* arbit comment
